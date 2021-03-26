@@ -1,0 +1,19 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: NameDoesCode <donkeyfredward@gmail.com>
+Date: Fri, 26 Mar 2021 16:41:06 -0400
+Subject: [PATCH] Fix-to-crash
+
+
+diff --git a/src/main/java/net/minecraft/server/level/RegionLimitedWorldAccess.java b/src/main/java/net/minecraft/server/level/RegionLimitedWorldAccess.java
+index 1b4fcbdb3ff550eb6d72174ef900d0e945e5ca19..a5577ebe83ca31607270e7adbd695c936e6fb601 100644
+--- a/src/main/java/net/minecraft/server/level/RegionLimitedWorldAccess.java
++++ b/src/main/java/net/minecraft/server/level/RegionLimitedWorldAccess.java
+@@ -110,7 +110,7 @@ public class RegionLimitedWorldAccess implements GeneratorAccessSeed {
+     @Override
+     public IChunkAccess getChunkAt(int i, int j, ChunkStatus chunkstatus, boolean flag) {
+         IChunkAccess ichunkaccess;
+-
++        
+         if (i > 134217000 || i < -134217000 || j > 134217000 || j < -134217000) return null;
+         
+         if (this.isChunkLoaded(i, j)) {
